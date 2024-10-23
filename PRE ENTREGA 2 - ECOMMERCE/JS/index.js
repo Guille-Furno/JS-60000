@@ -73,8 +73,19 @@ const productos = [
 ];
 
 const agregarProductos = ({ nombre, precio, imagen, stock }) => {
-    productos.push({ id: 4, nombre, precio, imagen, stock });
-  };
+
+    const maxId = productos.reduce((max, producto) => Math.max(max, producto.id), 0);
+    
+    const nuevoProducto = {
+        id: maxId + 1,
+        nombre,
+        precio,
+        imagen,
+        stock
+    };
+
+    productos.push(nuevoProducto);
+};
 
 const mostrarProductos = () => {
     let mensajeInformativo = "";
@@ -106,6 +117,7 @@ const solicitarDatosDelProducto = () => {
     } else {
     alert("Por ingresa datos validos");
     }
+
 };
 
 const eliminarProducto = (nombre) => {
@@ -120,44 +132,71 @@ const eliminarProducto = (nombre) => {
     } else {
     alert(`Producto ${nombre} no encontrado`);
     }
+
+    mostrarProductos();
+};
+
+const cambiarStock = (nombre, nuevoStock) => {
+    const indice = productos.findIndex(
+        (producto) => producto.nombre.toLowerCase() === nombre.toLowerCase()
+    );
+
+    if (indice !== -1) {
+        productos[indice].stock = nuevoStock; 
+        console.log(`El stock del producto ${nombre} ha sido actualizado a ${nuevoStock}`);
+    } else {
+        alert(`Producto ${nombre} no encontrado`);
+    }
+
+    mostrarProductos(); 
 };
 
 
 const main = () => {
     let opcion = "";
 
-    while (opcion !== "5") {
-    opcion = prompt(
-        "Selecciona una opcion: \n1. Agregar Productos \n2. Ver Productos \n3. Eliminar producto \n4. Salir"
-    );
-
-    switch (opcion) {
-        case "1":
-        const nuevoProducto = solicitarDatosDelProducto();
-        if (nuevoProducto) {
-            agregarProductos(nuevoProducto);
-        }
-        break;
-
-        case "2":
-        mostrarProductos();
-        break;
-
-        case "3":
-        const productoAElimar = prompt(
-            "ingresa el nombre del producto a elimar"
+    while (opcion !== "6") { 
+        opcion = prompt(
+            "Selecciona una opción: \n1. Agregar Productos \n2. Ver Productos \n3. Eliminar producto \n4. Cambiar stock \n5. Salir"
         );
-        eliminarProducto(productoAElimar);
-        break;
 
-        case "4":
-        console.log("Saliendo...");
-        break;
+        switch (opcion) {
+            case "1":
+                const nuevoProducto = solicitarDatosDelProducto();
+                if (nuevoProducto) {
+                    agregarProductos(nuevoProducto);
+                    mostrarProductos();
+                }
+                break;
 
-        default:
-        alert("Opcion no valida . Por favor selecciona de nuevo");
-    }
+            case "2":
+                mostrarProductos();
+                break;
+
+            case "3":
+                const productoAEliminar = prompt("Ingresa el nombre del producto a eliminar");
+                eliminarProducto(productoAEliminar);
+                break;
+
+            case "4":
+                const nombreProducto = prompt("Ingresa el nombre del producto cuyo stock deseas cambiar");
+                const nuevoStock = parseInt(prompt("Ingresa la nueva cantidad de stock"));
+                if (!isNaN(nuevoStock)) {
+                    cambiarStock(nombreProducto, nuevoStock);
+                } else {
+                    alert("Por favor ingresa un número válido para el stock");
+                }
+                break;
+
+            case "5":
+                console.log("Saliendo...");
+                break;
+
+            default:
+                alert("Opción no válida. Por favor selecciona de nuevo");
+        }
     }
 };
 
 main();
+
