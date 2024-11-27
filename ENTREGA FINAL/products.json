@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Prototipo Figma",
+    "price": 200,
+    "image": "./koala.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Desarrollo del sitio",
+    "price": 300,
+    "image": "./koala.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Formulario Web",
+    "price": 150,
+    "image": "./koala.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Diseño Adaptativo a tablet",
+    "price": 350,
+    "image": "./koala.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Posicionamiento SEO",
+    "price": 340,
+    "image": "./koala.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Página Web Completa",
+    "price": 1700,
+    "image": "./koala.jpg"
+  }
+]

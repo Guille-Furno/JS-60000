@@ -4,33 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Document</title>
+    <title>Carrito de Compras</title>
 </head>
 <body>
-<!-- Contenedor principal de los productos -->
-<div class="products" id="productList"></div>
+  <!-- Contenedor principal de los productos -->
+  <div class="products" id="productList"></div> <!-- Aquí se renderizarán los productos dinámicamente -->
 
-<!-- Boton para abrir el sidebar -->
-    <div>
-    <button class="cart__openButton">Carrito</button>
-    </div>
+  <!-- Botón para abrir el sidebar del carrito -->
+  <div>
+    <button class="cart__openButton">Abrir Carrito</button>
+  </div>
 
-    <div id="cartSidebar" class="cart__sidebar">
-    <button class="cart__close">X</button>
-
+<!-- Sidebar del carrito -->
+<div id="cartSidebar" class="cart__sidebar">
+    <button class="cart__close">Cerrar</button>
+  
     <div class="cart__container">
-        <h2>Tu carrito</h2>
-        <div class="cart__items"></div>
+      <h2>Tu Carrito</h2>
+      <!-- Aquí se agregan los productos del carrito -->
+      <div class="cart__items"></div>  
     </div>
+  
+    <!-- Total del carrito -->
+    <div class="cart__totalPrice">Total: $<span id="totalPrice">0.00</span></div>
+  </div>
+  
 
-    <div class="cart__totalPrice">Total: $0</div>
-    </div>
-
-    <div id="producto1"></div>
-    <div id="producto2"></div>
-
-    <script type="module" src="./js/app.js"></script>
-    <script type="module" src="./js/cart.js"></script>
-    <script type="module" src="./js/ui.js"></script>
+  <!-- Scripts -->
+  <script type="module" src="./js/app.js"></script>
+  <script type="module" src="./js/cart.js"></script>
+  <script type="module" src="./js/ui.js"></script>
 </body>
 </html>
