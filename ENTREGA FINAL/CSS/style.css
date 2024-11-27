@@ -239,11 +239,17 @@ H1{
 }
 
 .cart__increase,
-.cart__decrease,
-.cart__remove {
+.cart__decrease{
   background-color: #c0c0c0;
   padding: 5px;
   border: 1px solid gainsboro;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cart__remove {
+  background-color: #e60a0a;
+  padding: 5px;
+  border: 1px solid #e60a0a;
   border-radius: 4px;
   cursor: pointer;
 }
